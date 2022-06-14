@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -18,7 +19,13 @@ public class DbService {
     private final TaskRepository repository;
 
     public List<Task> getAllTasks() {
+
         return repository.findAll();
+    }
+
+    public Optional<Task> getTaskById(Long taskId) {
+
+        return repository.findById(taskId);
     }
 
 }
