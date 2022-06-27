@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequestMapping("/v1/tasks")
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class TaskController {
 
     private final DbService service;
