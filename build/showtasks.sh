@@ -13,7 +13,7 @@ run() {
 }
 
 
-if [ "./runcrud.sh" ]; then
+if [ "/Users/hubert/Downloads/task/build/runcrud.sh" ] ; then
   run
   end
 
