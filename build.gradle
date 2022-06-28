@@ -2,7 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.7.0'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
-	id 'war'
+	// id 'war'
 }
 
 group = 'com.crud'
@@ -18,6 +18,10 @@ configurations {
 
 repositories {
 	mavenCentral()
+}
+
+jar {
+	enabled = false
 }
 
 dependencies {
@@ -36,7 +40,9 @@ dependencies {
 	testCompileOnly 'org.projectlombok:lombok:1.18.24'
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
 
-	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	//providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+
+	runtimeOnly('org.postgresql:postgresql:42.4.0')
 }
 
 tasks.named('test') {
