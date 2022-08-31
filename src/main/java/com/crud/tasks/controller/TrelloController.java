@@ -7,9 +7,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("v1/trello")
-@RequiredArgsConstructor
+
 @CrossOrigin("*")
 public class TrelloController {
 
