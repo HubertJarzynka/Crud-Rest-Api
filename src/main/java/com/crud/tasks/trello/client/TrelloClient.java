@@ -16,6 +16,8 @@ import java.net.URI;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static java.lang.System.out;
+
 @Component
 @RequiredArgsConstructor
 public class TrelloClient {
@@ -60,7 +62,9 @@ public class TrelloClient {
                 .build()
                 .encode()
                 .toUri();
-
+        System.out.println(createNewCard(trelloCardDto));
         return restTemplate.postForObject(url, null, CreatedTrelloCard.class);
     }
+
+
 }
