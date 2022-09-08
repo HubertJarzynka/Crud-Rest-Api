@@ -22,6 +22,7 @@ import static java.lang.System.out;
 @RequiredArgsConstructor
 public class TrelloClient {
 
+
     private static final Logger LOGGER = LoggerFactory.getLogger(TrelloClient.class);
     private final RestTemplate restTemplate;
     private final com.crud.tasks.trello.config.TrelloConfig trelloConfig;
@@ -62,9 +63,6 @@ public class TrelloClient {
                 .build()
                 .encode()
                 .toUri();
-        System.out.println(createNewCard(trelloCardDto));
         return restTemplate.postForObject(url, null, CreatedTrelloCard.class);
     }
-
-
 }
