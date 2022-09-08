@@ -13,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
+import java.security.Key;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -26,6 +27,8 @@ public class TrelloClient {
     private static final Logger LOGGER = LoggerFactory.getLogger(TrelloClient.class);
     private final RestTemplate restTemplate;
     private final com.crud.tasks.trello.config.TrelloConfig trelloConfig;
+
+
 
     public List<TrelloBoardDto> getTrelloBoards() {
         URI url = UriComponentsBuilder
@@ -63,8 +66,13 @@ public class TrelloClient {
                 .build()
                 .encode()
                 .toUri();
+
+        System.out.println(CreatedTrelloCard.class);
         return restTemplate.postForObject(url, null, CreatedTrelloCard.class);
 
 
+
     }
+
+
 }
