@@ -17,7 +17,7 @@ import java.security.Key;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static java.lang.System.out;
+
 
 @Component
 @RequiredArgsConstructor
@@ -55,6 +55,15 @@ public class TrelloClient {
         }
     }
 
+
+    @Override
+    public String toString() {
+        return "TrelloClient{" +
+                "restTemplate=" + restTemplate +
+                ", trelloConfig=" + trelloConfig +
+                '}';
+    }
+
     public CreatedTrelloCard createNewCard(TrelloCardDto trelloCardDto) {
         URI url = UriComponentsBuilder.fromHttpUrl(trelloConfig.getTrelloApiEndpoint() + "/cards")
                 .queryParam("key", trelloConfig.getTrelloAppKey())
@@ -67,8 +76,11 @@ public class TrelloClient {
                 .encode()
                 .toUri();
 
-        System.out.println(CreatedTrelloCard.class);
-        return restTemplate.postForObject(url, null, CreatedTrelloCard.class);
+        System.out.println(url);
+        CreatedTrelloCard result =  restTemplate.postForObject(url, null, CreatedTrelloCard.class);
+        System.out.println(result);
+        return result;
+
 
 
 
