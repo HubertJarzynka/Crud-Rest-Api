@@ -25,4 +25,5 @@ public class CoreConfiguration {
                 .paths(PathSelectors.any())
                 .build();
     }
+
 }
